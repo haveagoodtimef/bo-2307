@@ -19,5 +19,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        //新功能开发
+    }
+
+    override fun onResume() {
+        super.onResume()
+        //新功能开发
     }
 }
