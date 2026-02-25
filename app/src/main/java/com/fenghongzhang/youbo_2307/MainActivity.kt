@@ -26,4 +26,10 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         //新功能开发
     }
+
+    override fun onPause() {
+        super.onPause()
+        //新功能开发123333333
+    }
+
 }
