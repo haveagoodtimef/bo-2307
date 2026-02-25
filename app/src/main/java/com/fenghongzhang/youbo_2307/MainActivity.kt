@@ -32,4 +32,9 @@ class MainActivity : AppCompatActivity() {
         //新功能开发123333333
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        //冯的删除
+    }
+
 }
