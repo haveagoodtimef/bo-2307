@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">youbo-2307</string>
+
+    <!-- 欢迎页/用户协议与隐私政策弹窗 -->
+    <string name="welcome_dialog_title">用户协议和隐私政策</string>
+    <string name="welcome_section_user_agreement">用户服务及隐私协议</string>
+    <string name="welcome_content_part1">欢迎使用有播！我们非常重视您的个人信息和隐私保护。您可通过点击《有播用户协议》和《隐私保护指引》了解我们如何收集、使用、存储、共享您的个人信息以及您享有的相关权利。</string>
+    <string name="welcome_content_part2">为了向您提供直播、精选购物等相关功能，我们需要收集、使用必要的信息。您可在相关页面查阅、更正您的个人信息。</string>
+    <string name="welcome_item_1">1. 为了向您提供交易相关功能，我们会收集、使用必要的信息。</string>
+    <string name="welcome_item_2">2. 基于您的明示授权，我们可能会获取相机权限（用于发布商品或开播）、麦克风权限（用于发布商品或视频）、存储权限（用于缓存文件、上传和保存图片）等。您有权拒绝或取消授权。</string>
+    <string name="welcome_item_3">3. 当您浏览视频、观看直播时，我们会缓存相关内容。</string>
+    <string name="welcome_btn_disagree">不同意并退出</string>
+    <string name="welcome_btn_agree">同意并继续</string>
+    <string name="link_user_agreement">《有播用户协议》</string>
+    <string name="link_privacy">《隐私保护指引》</string>
 </resources>

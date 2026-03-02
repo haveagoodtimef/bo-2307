@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script>
+        function callJS() {
+           alert("Hello from JS");
+
+       }
+         function callAndroid() {
+            try {
+                // 关键：window.AndroidInterface 是 Android 端绑定的接口名
+                // 调用 Android 暴露的 showToast 方法，传递参数
+                var result = window.AndroidInterface.showToast("我是JS传递的参数");
+
+                // 调用 Android 暴露的 getAndroidInfo 方法，获取返回值并展示
+                var info = window.AndroidInterface.getAndroidInfo();
+                document.getElementById("result").innerText =
+                    "调用Android方法返回：" + result + "\nAndroid设备信息：" + info;
+            } catch (e) {
+                document.getElementById("result").innerText = "调用失败：" + e.message;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div>
+      哈哈哈
+
+    </div>
+    <!-- 点击按钮触发JS调用Android -->
+    <button onclick="callAndroid()" style="font-size:20px;padding:10px;">
+        点击调用Android原生方法
+    </button>
+    <!-- 展示调用结果 -->
+    <div id="result" style="margin-top:20px;font-size:18px;color:red;"></div>
+<p>段落</p>
+<h1>大标题</h1>
+</body>
+</html>

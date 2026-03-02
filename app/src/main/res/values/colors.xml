@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <!-- 欢迎页/隐私弹窗 -->
+    <color name="welcome_primary">#FF6B35</color>
+    <color name="link_blue">#FF2196F3</color>
+    <color name="dialog_divider">#FFE0E0E0</color>
 </resources>
