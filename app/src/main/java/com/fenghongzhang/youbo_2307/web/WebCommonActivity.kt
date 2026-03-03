@@ -16,10 +16,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.fenghongzhang.youbo_2307.R
-import retrofit2.http.Url
 
 class WebCommonActivity : AppCompatActivity() {
-    lateinit var  webView:WebView
+    lateinit var webView: WebView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,42 +30,30 @@ class WebCommonActivity : AppCompatActivity() {
             insets
         }
 
-        // 1. 获取WebView实例（修正Java中遗漏的括号和id）
-       webView = findViewById(R.id.webView) // 替换成你实际的WebView id
+        webView = findViewById(R.id.webView)
+        val settings: WebSettings = webView.settings
+        settings.javaScriptEnabled = true
+        settings.domStorageEnabled = true
+        settings.allowFileAccess = true
+        settings.javaScriptCanOpenWindowsAutomatically = true
 
-        // 2. 获取WebSettings并开启JavaScript（Kotlin中属性调用替代getter方法）
-        val settings: WebSettings = webView.settings // 等价于webView.getSettings()
-        settings.javaScriptEnabled = true // 开启JS
-        settings.domStorageEnabled = true // 开启DOM存储
-        settings.allowFileAccess = true // 允许访问本地文件
-        settings.javaScriptCanOpenWindowsAutomatically = true // 允许JS打开窗口
-
-
-        // 配置WebView弹窗回调（解决alert/confirm阻塞问题）
-        webView.webChromeClient = object: WebChromeClient() {
-
+        webView.webChromeClient = object : WebChromeClient() {
             override fun onConsoleMessage(message: String, lineNumber: Int, sourceID: String) {
                 Log.d("JSConsole", "JS错误：$message 行号：$lineNumber")
                 super.onConsoleMessage(message, lineNumber, sourceID)
             }
-
-            // 处理alert弹窗（可选，避免阻塞）
             override fun onJsAlert(view: WebView?, url: String?, message: String?, result: JsResult?): Boolean {
                 Toast.makeText(this@WebCommonActivity, message, Toast.LENGTH_LONG).show()
                 return true
             }
         }
 
-// 等待页面加载完成后再调用JS方法（关键：避免页面未加载完调用返回null）
         webView.webViewClient = object : WebViewClient() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 Log.d("WebView", "页面加载完成，URL：$url")
-                // 页面加载完成后立即调用JS方法
                 callJS()
             }
-
-            // 监听页面加载错误（关键：排查文件是否找不到）
             override fun onReceivedError(
                 view: WebView?,
                 errorCode: Int,
@@ -78,21 +66,8 @@ class WebCommonActivity : AppCompatActivity() {
 
         webView.addJavascriptInterface(AndroidJSInterface(), "AndroidInterface")
 
-        // 3. 加载本地assets目录下的HTML文件
-        webView.loadUrl("file:///android_asset/javascript.html")
-
-        // 方式1：使用loadUrl调用JS方法（修正Java中遗漏的括号和方法参数）
-
-
-        // 方式2：使用evaluateJavascript调用JS方法（Kotlin用Lambda简化ValueCallback）
-//        webView.evaluateJavascript("callJS()") { value ->
-//            // 注意：返回值会被包裹双引号，需要去除
-//            val realValue = value?.replace("\"", "") // 去除双引号，得到 Hello from JS
-//            Log.d("WebView", "返回值：$value | 处理后：$realValue")
-//            // 此时输出：返回值："Hello from JS" | 处理后：Hello from JS
-//        }
-
-
+        val url = intent.getStringExtra(EXTRA_URL) ?: DEFAULT_URL
+        webView.loadUrl(url)
     }
 
     inner class AndroidJSInterface {
@@ -129,11 +104,13 @@ class WebCommonActivity : AppCompatActivity() {
 //            }
 //        }
     }
-    //伴生对象 -》 静态成员
     companion object {
+        private const val EXTRA_URL = "extra_url"
+        private const val DEFAULT_URL = "file:///android_asset/javascript.html"
+
         @JvmStatic
-        fun start(act: Activity, url: String) {
-            act.startActivity(Intent(act, WebCommonActivity::class.java))
+        fun start(act: Activity, url: String = DEFAULT_URL) {
+            act.startActivity(Intent(act, WebCommonActivity::class.java).putExtra(EXTRA_URL, url))
         }
     }
 }

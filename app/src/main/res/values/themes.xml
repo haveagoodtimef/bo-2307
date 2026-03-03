@@ -13,4 +13,6 @@
         <item name="android:windowIsFloating">true</item>
         <item name="android:backgroundDimEnabled">true</item>
     </style>
+    <!-- 引导页「即刻体验」按钮：RTextView 自带 background_normal/ripple，仅需可点击 -->
+    <style name="ripple" />
 </resources>

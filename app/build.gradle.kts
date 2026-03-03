@@ -77,6 +77,10 @@ dependencies {
     // 图片加载
     implementation(libs.glide)
     annotationProcessor(libs.glide.compiler)
+
+    // 引导页轮播与按钮
+    implementation("com.github.xiaohaibin:XBanner:androidx_v1.2.6")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -13,4 +13,9 @@
     <string name="welcome_btn_agree">同意并继续</string>
     <string name="link_user_agreement">《有播用户协议》</string>
     <string name="link_privacy">《隐私保护指引》</string>
+
+    <!-- 引导页 -->
+    <string name="guide_btn_enter">进入</string>
+    <string name="guide_btn_experience">即刻体验</string>
+    <string name="guide_image_desc">引导图</string>
 </resources>

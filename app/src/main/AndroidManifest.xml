@@ -21,6 +21,10 @@
         <activity
             android:name=".web.WebCommonActivity"
             android:exported="false" />
+        <activity
+            android:name=".GuideActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Youbo2307" />
 
         <service
             android:name=".server.MyService"
