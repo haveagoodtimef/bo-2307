@@ -1,0 +1,202 @@
+{
+    "beauty": [
+        {
+            "filePath": "ComposeMakeup/beauty_Android_live",
+            "iconName": "whiten.png",
+            "displayName": "美白",
+            "key": "whiten",
+            "defaultIntensity": 0.5
+        },
+        {
+            "filePath": "ComposeMakeup/beauty_Android_live",
+            "iconName": "smooth.png",
+            "displayName": "磨皮",
+            "key": "smooth",
+            "defaultIntensity": 0.5
+        },
+        {
+            "filePath": "ComposeMakeup/beauty_Android_live",
+            "iconName": "sharpen.png",
+            "displayName": "锐化",
+            "key": "sharp",
+            "defaultIntensity": 0.5
+        }
+    ],
+    "reshape": [
+        {
+            "filePath": "ComposeMakeup/reshape_live",
+            "iconName": "cheek.png",
+            "displayName": "瘦脸",
+            "key": "Internal_Deform_Overall",
+            "defaultIntensity": 0.5
+        },
+        {
+            "filePath": "ComposeMakeup/reshape_live",
+            "iconName": "eye.png",
+            "displayName": "大眼",
+            "key": "Internal_Deform_Eye",
+            "defaultIntensity": 0.5
+        },
+        {
+            "filePath": "ComposeMakeup/reshape_live",
+            "iconName": "cut_face.png",
+            "displayName": "窄脸",
+            "key": "Internal_Deform_CutFace",
+            "defaultIntensity": 0.5
+        },
+        {
+            "filePath": "ComposeMakeup/reshape_live",
+            "iconName": "chin.png",
+            "displayName": "下巴",
+            "key": "Internal_Deform_Chin",
+            "defaultIntensity": 0.5
+        },
+        {
+            "filePath": "ComposeMakeup/reshape_live",
+            "iconName": "lean_nose.png",
+            "displayName": "瘦鼻",
+            "key": "Internal_Deform_Nose",
+            "defaultIntensity": 0.5
+        },
+        {
+            "filePath": "ComposeMakeup/reshape_live",
+            "iconName": "forehead.png",
+            "displayName": "额头",
+            "key": "Internal_Deform_Forehead",
+            "defaultIntensity": 0.5
+        }
+    ],
+    "makeup": {
+        "blush": {
+            "displayName": "腮红",
+            "iconName": "blush.png",
+            "effects": [
+                {
+                    "filePath": "ComposeMakeup/blush/richang",
+                    "iconName": "blush_richang.png",
+                    "displayName": "日常",
+                    "key": "Internal_Makeup_Blusher",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/blush/mitao",
+                    "iconName": "blush_mitao.png",
+                    "displayName": "蜜桃",
+                    "key": "Internal_Makeup_Blusher",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/blush/xinji",
+                    "iconName": "blush_xinji.png",
+                    "displayName": "心机",
+                    "key": "Internal_Makeup_Blusher",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/blush/qiaopi",
+                    "iconName": "blush_qiaopi.png",
+                    "displayName": "俏皮",
+                    "key": "Internal_Makeup_Blusher",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/blush/shaishang",
+                    "iconName": "blush_shaishang.png",
+                    "displayName": "晒伤",
+                    "key": "Internal_Makeup_Blusher",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/blush/weixun",
+                    "iconName": "blush_weixun.png",
+                    "displayName": "微醺",
+                    "key": "Internal_Makeup_Blusher",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/blush/tiancheng",
+                    "iconName": "blush_tiancheng.png",
+                    "displayName": "甜橙",
+                    "key": "Internal_Makeup_Blusher",
+                    "defaultIntensity": 0.5
+                }
+            ]
+        },
+        "lip": {
+            "displayName": "口红",
+            "iconName": "lip.png",
+            "effects": [
+                {
+                    "filePath": "ComposeMakeup/lip/yuanqiju",
+                    "iconName": "lip_yuanqiju.png",
+                    "displayName": "元气橘",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/lip/meizise",
+                    "iconName": "lip_meizise.png",
+                    "displayName": "梅子色",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/lip/shanhuse",
+                    "iconName": "lip_shanhuse.png",
+                    "displayName": "珊瑚色",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/lip/xiyouse",
+                    "iconName": "lip_xiyouse.png",
+                    "displayName": "西柚色",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/lip/shaonvfen",
+                    "iconName": "lip_shaonvfen.png",
+                    "displayName": "少女粉",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/lip/sironghong",
+                    "iconName": "lip_sironghong.png",
+                    "displayName": "丝绒红",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/lip/doushafen",
+                    "iconName": "lip_doushafen.png",
+                    "displayName": "豆沙粉",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/lip/fuguhong",
+                    "iconName": "lip_fuguhong.png",
+                    "displayName": "复古红",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/lip/zangjuse",
+                    "iconName": "lip_zangjuse.png",
+                    "displayName": "脏橘色",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                },
+                {
+                    "filePath": "ComposeMakeup/lip/xiguahong",
+                    "iconName": "lip_xiguahong.png",
+                    "displayName": "西瓜红",
+                    "key": "Internal_Makeup_Lips",
+                    "defaultIntensity": 0.5
+                }
+            ]
+        }
+    }
+}

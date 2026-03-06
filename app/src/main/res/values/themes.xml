@@ -15,4 +15,10 @@
     </style>
     <!-- 引导页「即刻体验」按钮：RTextView 自带 background_normal/ripple，仅需可点击 -->
     <style name="ripple" />
+
+    <!-- 有货页 Tab 文字 -->
+    <style name="YouhuoTabText" parent="android:TextAppearance">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textColor03</item>
+    </style>
 </resources>

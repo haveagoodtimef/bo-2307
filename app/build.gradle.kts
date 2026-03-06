@@ -1,7 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.devtools.ksp") version "1.9.24-1.0.20"
+    id("com.google.dagger.hilt.android")
 }
+
 
 android {
     namespace = "com.fenghongzhang.youbo_2307"
@@ -56,6 +59,12 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+
+    implementation("com.google.dagger:hilt-android:2.55")
+    ksp("com.google.dagger:hilt-android-compiler:2.55")
 
     // MVVM架构相关依赖
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
@@ -80,6 +89,11 @@ dependencies {
 
     // 引导页轮播与按钮
     implementation("com.github.xiaohaibin:XBanner:androidx_v1.2.6")
+
+    implementation("com.github.JessYanCoding:AndroidAutoSize:v1.2.1")
+
+    // Lottie 动画
+    implementation("com.airbnb.android:lottie:6.7.1")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

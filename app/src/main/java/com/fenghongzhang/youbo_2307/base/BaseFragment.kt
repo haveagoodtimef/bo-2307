@@ -76,6 +76,11 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
         initListener()
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (!isDataLoaded) lazyLoadData()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

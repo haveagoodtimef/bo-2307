@@ -1,0 +1,38 @@
+[
+    {
+        "filePath": "stickers/dongxue",
+        "iconName": "dongxue.png",
+        "displayName": "冬雪",
+        "tip": "伸出手掌试试"
+    },
+    {
+        "filePath": "stickers/xiaokonglongqinqin",
+        "iconName": "xiaokonglongqinqin.png",
+        "displayName": "小恐龙亲亲",
+        "tip": "小恐龙亲亲"
+    },
+    {
+        "filePath": "stickers/shuiyuanqi",
+        "iconName": "shuiyuanqi.png",
+        "displayName": "水元气",
+        "tip": "五指张开"
+    },
+    {
+        "filePath": "stickers/huahua",
+        "iconName": "huahua.png",
+        "displayName": "花花",
+        "tip": "挑眉试试"
+    },
+    {
+        "filePath": "stickers/ganendexin",
+        "iconName": "ganendexin.png",
+        "displayName": "感恩的心",
+        "tip": "单手比心试试"
+    },
+    {
+        "filePath": "stickers/fengshou",
+        "iconName": "fengshou.png",
+        "displayName": "丰收",
+        "tip": "抬头"
+    }
+]

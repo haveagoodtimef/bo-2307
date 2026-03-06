@@ -1,0 +1,38 @@
+[
+    {
+        "filePath": "Filter/Filter_20_05",
+        "iconName": "Filter_20_05.png",
+        "displayName": "橘蓝调",
+        "defaultIntensity": 0.5
+    },
+    {
+        "filePath": "Filter/Filter_25_Po3",
+        "iconName": "Filter_25_Po3.png",
+        "displayName": "初见",
+        "defaultIntensity": 0.5
+    },
+    {
+        "filePath": "Filter/Filter_05_10",
+        "iconName": "Filter_05_10.png",
+        "displayName": "洛丽塔",
+        "defaultIntensity": 0.5
+    },
+    {
+        "filePath": "Filter/Filter_34_L2",
+        "iconName": "Filter_34_L2.png",
+        "displayName": "浅夏",
+        "defaultIntensity": 0.5
+    },
+    {
+        "filePath": "Filter/Filter_12_08",
+        "iconName": "Filter_12_08.png",
+        "displayName": "北海道",
+        "defaultIntensity": 0.5
+    },
+    {
+        "filePath": "Filter/Filter_06_03",
+        "iconName": "Filter_06_03.png",
+        "displayName": "蜜桃",
+        "defaultIntensity": 0.5
+    }
+]

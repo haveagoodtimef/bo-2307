@@ -18,6 +18,8 @@
         android:theme="@style/Theme.Youbo2307"
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
+
+
         <activity
             android:name=".web.WebCommonActivity"
             android:exported="false" />

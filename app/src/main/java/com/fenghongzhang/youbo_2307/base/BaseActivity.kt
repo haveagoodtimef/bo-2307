@@ -1,9 +1,14 @@
 package com.fenghongzhang.youbo_2307.base
 
+import android.content.res.Configuration
+import android.content.res.Resources
 import android.os.Bundle
+import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import me.jessyan.autosize.AutoSize
+import me.jessyan.autosize.AutoSizeCompat
 
 /**
  * MVVM 架构中 Activity 的基类
@@ -65,5 +70,32 @@ abstract class BaseActivity<VB : ViewBinding, VM : BaseViewModel> : AppCompatAct
 
     protected fun showSuccess(message: String) {
         showToast(message)
+    }
+    override fun getResources(): Resources {
+        if (Looper.getMainLooper().thread == Thread.currentThread()) {//解决某些手机某些情况下竖屏适配失败的问题
+            AutoSizeCompat.autoConvertDensity(
+                super.getResources(),
+                1080f,
+                super.getResources()
+                    .getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT
+            )
+        }
+        val resources = super.getResources()
+        var configuration = resources.getConfiguration()
+        if (resources != null && configuration.fontScale != 1.0f) {
+            configuration.fontScale = 1.0f
+        }
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics())
+        return resources
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {//解决横屏无法适配的问题
+        super.onConfigurationChanged(newConfig)
+        AutoSize.autoConvertDensity(
+            this,
+            1080f,
+            super.getResources()
+                .getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT
+        )
     }
 }

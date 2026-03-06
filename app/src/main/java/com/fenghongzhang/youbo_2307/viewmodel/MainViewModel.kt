@@ -7,15 +7,16 @@ import com.fenghongzhang.youbo_2307.base.Event
 import com.fenghongzhang.youbo_2307.base.UiState
 import com.fenghongzhang.youbo_2307.base.toEvent
 import com.fenghongzhang.youbo_2307.repository.MainRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
 /**
  * 主页面ViewModel示例
  * 展示如何使用BaseViewModel和Repository进行数据处理
  */
-class MainViewModel : BaseViewModel() {
-    
-    private val repository = MainRepository()
-    
+@HiltViewModel
+class MainViewModel @Inject constructor(val repository: MainRepository): BaseViewModel() {
+
     // UI状态管理
     private val _uiState = MutableLiveData<UiState<String>>()
     val uiState: LiveData<UiState<String>> = _uiState

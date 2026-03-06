@@ -1,0 +1,421 @@
+{
+  "v": "5.4.3",
+  "fr": 25,
+  "ip": 0,
+  "op": 50,
+  "w": 460,
+  "h": 460,
+  "nm": "有播",
+  "ddd": 0,
+  "assets": [
+    {
+      "id": "playimg_0",
+      "w": 170,
+      "h": 168,
+      "u": "images111/",
+      "p": "playimg_0.png",
+      "e": 0
+    },
+    {
+      "id": "playimg_1",
+      "w": 420,
+      "h": 420,
+      "u": "images111/",
+      "p": "playimg_1.png",
+      "e": 0
+    },
+    {
+      "id": "playimg_2",
+      "w": 420,
+      "h": 420,
+      "u": "images111/",
+      "p": "playimg_2.png",
+      "e": 0
+    }
+  ],
+  "layers": [
+    {
+      "ddd": 0,
+      "ind": 1,
+      "ty": 2,
+      "nm": "矢量智能对象/有播.psd",
+      "cl": "psd",
+      "refId": "playimg_0",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 1,
+          "k": [
+            {
+              "i": {
+                "x": [
+                  0.833
+                ],
+                "y": [
+                  0.833
+                ]
+              },
+              "o": {
+                "x": [
+                  0.167
+                ],
+                "y": [
+                  0.167
+                ]
+              },
+              "n": [
+                "0p833_0p833_0p167_0p167"
+              ],
+              "t": 5,
+              "s": [
+                0
+              ],
+              "e": [
+                100
+              ]
+            },
+            {
+              "t": 28
+            }
+          ],
+          "ix": 11
+        },
+        "r": {
+          "a": 0,
+          "k": 0,
+          "ix": 10
+        },
+        "p": {
+          "a": 1,
+          "k": [
+            {
+              "i": {
+                "x": 0.833,
+                "y": 0.833
+              },
+              "o": {
+                "x": 0.167,
+                "y": 0.167
+              },
+              "n": "0p833_0p833_0p167_0p167",
+              "t": 5,
+              "s": [
+                -92,
+                230,
+                0
+              ],
+              "e": [
+                238,
+                230,
+                0
+              ],
+              "to": [
+                55,
+                0,
+                0
+              ],
+              "ti": [
+                -55,
+                0,
+                0
+              ]
+            },
+            {
+              "t": 16
+            }
+          ],
+          "ix": 2,
+          "x": "var $bm_rt;\nvar nearestKeyIndex, nearestKeyIndex, currentTime, currentTime, calculatedVelocity, amplitude, frequency, decay;\ntransform.position;\n$bm_rt = nearestKeyIndex = 0;\nif (numKeys > 0) {\n    $bm_rt = nearestKeyIndex = nearestKey(time).index;\n    if (key(nearestKeyIndex).time > time) {\n        nearestKeyIndex--;\n    }\n}\nif (nearestKeyIndex == 0) {\n    $bm_rt = currentTime = 0;\n} else {\n    $bm_rt = currentTime = sub(time, key(nearestKeyIndex).time);\n}\nif (nearestKeyIndex > 0 && currentTime < 1) {\n    calculatedVelocity = velocityAtTime(sub(key(nearestKeyIndex).time, div(thisComp.frameDuration, 10)));\n    amplitude = 0.1;\n    frequency = 2;\n    decay = 4;\n    $bm_rt = sum(value, div(mul(mul(calculatedVelocity, amplitude), Math.sin(mul(mul(mul(frequency, currentTime), 2), Math.PI))), Math.exp(mul(decay, currentTime))));\n} else {\n    $bm_rt = value;\n}"
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            85,
+            84,
+            0
+          ],
+          "ix": 1
+        },
+        "s": {
+          "a": 1,
+          "k": [
+            {
+              "i": {
+                "x": [
+                  0.833,
+                  0.833,
+                  0.833
+                ],
+                "y": [
+                  0.833,
+                  0.833,
+                  0.833
+                ]
+              },
+              "o": {
+                "x": [
+                  0.167,
+                  0.167,
+                  0.167
+                ],
+                "y": [
+                  0.167,
+                  0.167,
+                  0.167
+                ]
+              },
+              "n": [
+                "0p833_0p833_0p167_0p167",
+                "0p833_0p833_0p167_0p167",
+                "0p833_0p833_0p167_0p167"
+              ],
+              "t": 5,
+              "s": [
+                50,
+                50,
+                100
+              ],
+              "e": [
+                100,
+                100,
+                100
+              ]
+            },
+            {
+              "t": 16
+            }
+          ],
+          "ix": 6
+        }
+      },
+      "ao": 0,
+      "ip": 5,
+      "op": 55,
+      "st": 5,
+      "bm": 0
+    },
+    {
+      "ddd": 0,
+      "ind": 2,
+      "ty": 2,
+      "nm": "矢量智能对象/有播.psd",
+      "cl": "psd",
+      "refId": "playimg_1",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 0,
+          "k": 100,
+          "ix": 11
+        },
+        "r": {
+          "a": 0,
+          "k": 0,
+          "ix": 10
+        },
+        "p": {
+          "a": 0,
+          "k": [
+            230,
+            230,
+            0
+          ],
+          "ix": 2
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            210,
+            210,
+            0
+          ],
+          "ix": 1
+        },
+        "s": {
+          "a": 1,
+          "k": [
+            {
+              "i": {
+                "x": [
+                  0.667,
+                  0.667,
+                  0.667
+                ],
+                "y": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.333,
+                  0.333,
+                  0.333
+                ],
+                "y": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "n": [
+                "0p667_1_0p333_0",
+                "0p667_1_0p333_0",
+                "0p667_1_0p333_0"
+              ],
+              "t": 2,
+              "s": [
+                0,
+                0,
+                100
+              ],
+              "e": [
+                110,
+                110,
+                100
+              ]
+            },
+            {
+              "i": {
+                "x": [
+                  0.667,
+                  0.667,
+                  0.667
+                ],
+                "y": [
+                  1,
+                  1,
+                  1
+                ]
+              },
+              "o": {
+                "x": [
+                  0.333,
+                  0.333,
+                  0.333
+                ],
+                "y": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "n": [
+                "0p667_1_0p333_0",
+                "0p667_1_0p333_0",
+                "0p667_1_0p333_0"
+              ],
+              "t": 12,
+              "s": [
+                110,
+                110,
+                100
+              ],
+              "e": [
+                100,
+                100,
+                100
+              ]
+            },
+            {
+              "t": 16
+            }
+          ],
+          "ix": 6
+        }
+      },
+      "ao": 0,
+      "ip": 2,
+      "op": 52,
+      "st": 2,
+      "bm": 0
+    },
+    {
+      "ddd": 0,
+      "ind": 3,
+      "ty": 2,
+      "nm": "矢量智能对象/有播.psd",
+      "cl": "psd",
+      "refId": "playimg_2",
+      "sr": 1,
+      "ks": {
+        "o": {
+          "a": 1,
+          "k": [
+            {
+              "i": {
+                "x": [
+                  0.833
+                ],
+                "y": [
+                  0.833
+                ]
+              },
+              "o": {
+                "x": [
+                  0.167
+                ],
+                "y": [
+                  0.167
+                ]
+              },
+              "n": [
+                "0p833_0p833_0p167_0p167"
+              ],
+              "t": 0,
+              "s": [
+                100
+              ],
+              "e": [
+                0
+              ]
+            },
+            {
+              "t": 9
+            }
+          ],
+          "ix": 11
+        },
+        "r": {
+          "a": 0,
+          "k": 0,
+          "ix": 10
+        },
+        "p": {
+          "a": 0,
+          "k": [
+            230,
+            230,
+            0
+          ],
+          "ix": 2
+        },
+        "a": {
+          "a": 0,
+          "k": [
+            210,
+            210,
+            0
+          ],
+          "ix": 1
+        },
+        "s": {
+          "a": 0,
+          "k": [
+            100,
+            100,
+            100
+          ],
+          "ix": 6
+        }
+      },
+      "ao": 0,
+      "ip": 0,
+      "op": 50,
+      "st": 0,
+      "bm": 0
+    }
+  ],
+  "markers": []
+}

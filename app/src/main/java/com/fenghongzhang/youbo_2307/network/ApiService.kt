@@ -1,32 +1,39 @@
 package com.fenghongzhang.youbo_2307.network
 
-import retrofit2.Response
+import com.fenghongzhang.youbo_2307.model.LiveFrontCarouselData
+import com.fenghongzhang.youbo_2307.retrofit.ResWrapper
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
- * API服务接口示例
- * 展示如何使用Retrofit进行网络请求
+ * API 服务接口
+ * 由 Hilt [com.fenghongzhang.youbo_2307.module.NetworkModule] 提供实例，
+ * 在 Repository/ViewModel 中通过构造函数注入使用，例如：
+ * ```
+ * class UserRepository @Inject constructor(private val apiService: ApiService) : BaseRepository() {
+ *     suspend fun getUsers(): Result<List<UserResponse>> = safeApiCall {
+ *         val r = apiService.getUsers()
+ *         if (r.isSuccessful) Result.success(r.body() ?: emptyList())
+ *         else Result.failure(Exception("${r.code()} ${r.message()}"))
+ *     }
+ * }
+ * ```
  */
 interface ApiService {
-    
+
     /**
-     * 获取用户列表
-     */
-    @GET("users")
-    suspend fun getUsers(): Response<List<UserResponse>>
-    
-    /**
-     * 根据ID获取用户详情
+     * 根据 ID 获取用户详情
      */
     @GET("users/{id}")
-    suspend fun getUserById(@Query("id") userId: Int): Response<UserResponse>
-    
+    suspend fun getUserById(@Path("id") userId: Int): ResWrapper<UserResponse>
+
     /**
-     * 搜索用户
+     * 直播前台轮播图
+     * 返回 topPorcelainList、carouselList
      */
-    @GET("users/search")
-    suspend fun searchUsers(@Query("query") query: String): Response<List<UserResponse>>
+    @GET("index.php")
+    suspend fun getLiveFrontCarousel(@Query("r") r: String = "lv/live-front/carousel"): ResWrapper<LiveFrontCarouselData>
 }
 
 /**
@@ -61,3 +68,6 @@ data class CompanyResponse(
     val catchPhrase: String,
     val bs: String
 )
+
+
+

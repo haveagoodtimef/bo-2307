@@ -1,24 +1,40 @@
 package com.fenghongzhang.youbo_2307
 
-import android.content.Intent
-import android.view.View
 import androidx.activity.viewModels
-import androidx.lifecycle.Observer
+import androidx.fragment.app.Fragment
 import com.fenghongzhang.youbo_2307.base.BaseActivity
-import com.fenghongzhang.youbo_2307.base.UiState
-import com.fenghongzhang.youbo_2307.base.observeEvent
 import com.fenghongzhang.youbo_2307.databinding.ActivityMainBinding
+import com.fenghongzhang.youbo_2307.ui.haohuo.HaohuoFragment
+import com.fenghongzhang.youbo_2307.ui.message.MessageFragment
+import com.fenghongzhang.youbo_2307.ui.mine.MineFragment
+import com.fenghongzhang.youbo_2307.ui.youbo.YouboFragment
+import com.fenghongzhang.youbo_2307.navigation.LottieTabView
+import com.fenghongzhang.youbo_2307.test.UserFeng
 import com.fenghongzhang.youbo_2307.viewmodel.MainViewModel
-import com.fenghongzhang.youbo_2307.web.WebCommonActivity
-import com.tencent.bugly.crashreport.CrashReport
+import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.OkHttpClient
+import javax.inject.Inject
 
 /**
- * 首页 - MVVM 架构
- * ViewModel 使用 by viewModels() 创建，在 initBinding 中赋给基类 viewModel。
+ * 首页 - 底部四个 Tab：有货、好货、消息、我的，分别对应四个 Fragment
  */
+@AndroidEntryPoint
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
 
     private val mainViewModel: MainViewModel by viewModels()
+
+    private val youboFragment = YouboFragment()
+    private val haohuoFragment = HaohuoFragment()
+    private val messageFragment = MessageFragment()
+    private val mineFragment = MineFragment()
+
+
+    @Inject
+    lateinit var userFeng: UserFeng
+
+    private var currentFragment: Fragment? = null
+    private var currentTab: LottieTabView? = null
+
 
     override fun getViewBinding(): ActivityMainBinding {
         return ActivityMainBinding.inflate(layoutInflater)
@@ -28,103 +44,37 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         binding = getViewBinding()
         viewModel = mainViewModel
     }
-    
-    override fun initObserver() {
 
+    override fun initObserver() {}
 
-        // 观察UI状态变化
-        viewModel.uiState.observe(this, Observer { uiState ->
-            when (uiState) {
-                is UiState.Initial -> {
-                    binding.tvDataResult.text = "点击按钮加载数据"
-                }
-                is UiState.Loading -> {
-                    binding.tvDataResult.text = "正在加载数据..."
-                }
-                is UiState.Success -> {
-                    binding.tvDataResult.text = uiState.data
-                }
-                is UiState.Error -> {
-                    binding.tvDataResult.text = "错误: ${uiState.message}"
-                }
-                is UiState.Empty -> {
-                    binding.tvDataResult.text = "暂无数据"
-                }
-            }
-        })
-        
-        // 观察计数器变化
-        viewModel.counter.observe(this, Observer { count ->
-            binding.tvCounter.text = count.toString()
-        })
-        
-        // 观察加载状态
-        viewModel.loading.observe(this, Observer { isLoading ->
-            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
-            binding.btnLoadData.isEnabled = !isLoading
-        })
-        
-        // 观察错误消息
-        viewModel.errorMessage.observe(this, Observer { message ->
-            if (message != null) {
-                showError(message)
-                // 错误已显示，不需要手动清除
-            }
-        })
-        
-        // 观察成功消息
-        viewModel.successMessage.observe(this, Observer { message ->
-            if (message != null) {
-                showSuccess(message)
-                // 成功消息已显示，不需要手动清除
-            }
-        })
-        
-        // 观察导航事件
-        viewModel.navigationEvent.observeEvent(this) { destination ->
-            when (destination) {
-                "detail" -> {
-                    // 这里可以跳转到详情页
-                    showToast("导航到详情页功能待实现")
-                }
-            }
-        }
-    }
-    
     override fun initData() {
-        // 首页只做数据加载，欢迎页由 WelcomeActivity 仅展示一次
+        userFeng.name = "FengHongZhang"
+        println("userFeng: $userFeng")
+        // 默认展示「有货」Fragment
+        switchFragment(youboFragment, binding.tabLive)
     }
-    
+
     override fun initListener() {
-        // 设置按钮点击事件
-        binding.btnLoadData.setOnClickListener {
-            WebCommonActivity.start(this, "https://www.baidu.com")
-            //viewModel.loadData()
-        }
-        
-        binding.btnIncrement.setOnClickListener {
-            viewModel.incrementCounter()
-        }
-        
-        binding.btnDecrement.setOnClickListener {
-            viewModel.decrementCounter()
-        }
-        
-        binding.btnReset.setOnClickListener {
-            CrashReport.testJavaCrash();
-            viewModel.resetCounter()
-        }
-        
-        binding.btnNavigate.setOnClickListener {
-            viewModel.navigateToDetail()
-        }
+        binding.tabLive.setOnClickListener { switchFragment(youboFragment, binding.tabLive) }
+        binding.tabYouxuan.setOnClickListener { switchFragment(haohuoFragment, binding.tabYouxuan) }
+        binding.tabMsg.setOnClickListener { switchFragment(messageFragment, binding.tabMsg) }
+        binding.tabMine.setOnClickListener { switchFragment(mineFragment, binding.tabMine) }
     }
-    
-    override fun showLoading() {
-        binding.progressBar.visibility = View.VISIBLE
-    }
-    
-    override fun hideLoading() {
-        binding.progressBar.visibility = View.GONE
+
+    private fun switchFragment(target: Fragment, tab: LottieTabView) {
+        if (currentFragment == target) return
+        currentTab?.unSelected()
+        tab.selected()
+        currentTab = tab
+        supportFragmentManager.beginTransaction().apply {
+            currentFragment?.let { hide(it) }
+            if (target.isAdded) {
+                show(target)
+            } else {
+                add(binding.fl.id, target)
+            }
+            commit()
+        }
+        currentFragment = target
     }
 }
