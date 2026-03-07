@@ -82,6 +82,11 @@ dependencies {
     // 协程相关
     implementation(libs.coroutines.core)
     implementation(libs.coroutines.android)
+
+    // Room
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
     
     // 图片加载
     implementation(libs.glide)

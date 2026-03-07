@@ -33,7 +33,7 @@ interface ApiService {
      * 返回 topPorcelainList、carouselList
      */
     @GET("index.php")
-    suspend fun getLiveFrontCarousel(@Query("r") r: String = "lv/live-front/carousel"): ResWrapper<LiveFrontCarouselData>
+    suspend fun getLiveFrontCarousel(@Query("r") r: String = "lv/live-front/carousel----1"): ResWrapper<LiveFrontCarouselData>
 }
 
 /**

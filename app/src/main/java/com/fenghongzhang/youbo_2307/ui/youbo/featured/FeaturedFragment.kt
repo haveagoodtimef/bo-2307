@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * 精选页 Fragment（ViewPager2 第 2 页）
- * RecyclerView 多布局展示，当前仅头部 Banner（getLiveFrontCarousel）
+ * RecyclerView 多布局展示头部 Banner；轮播数据来自 Room（先展示 DB 中两条示例数据，接口成功后更新为接口数据）
  */
 @AndroidEntryPoint
 class FeaturedFragment : BaseFragment<FragmentYouboFeaturedBinding, FeaturedViewModel>() {
